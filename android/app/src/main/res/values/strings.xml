@@ -52,4 +52,53 @@
     <!-- Errors -->
     <string name="error_sign_in_failed">로그인하지 못했어요</string>
     <string name="error_sign_up_failed">회원가입하지 못했어요</string>
+
+    <!-- Mountain finder -->
+    <string name="mountains_view_region">지역</string>
+    <string name="mountains_view_difficulty">난이도</string>
+    <string name="mountains_view_height">높이</string>
+    <string name="region_capital">수도권</string>
+    <string name="region_gangwon">강원</string>
+    <string name="region_chungcheong">충청</string>
+    <string name="region_jeolla">전라</string>
+    <string name="region_gyeongsang">경상</string>
+    <string name="region_jeju">제주</string>
+    <string name="difficulty_easy">초급</string>
+    <string name="difficulty_moderate">중급</string>
+    <string name="difficulty_hard">상급</string>
+    <string name="height_under_500">500m 미만</string>
+    <string name="height_500_to_1000">500~1,000m</string>
+    <string name="height_over_1000">1,000m 이상</string>
+    <string name="option_all">전체</string>
+    <string name="mountains_detail_placeholder">산을 고르면 자세한 정보가 여기에 보여요</string>
+    <string name="mountains_search_placeholder">산 이름으로 검색</string>
+    <string name="mountains_search_clear">지우기</string>
+    <string name="mountains_load_failed">산 목록을 불러오지 못했어요</string>
+    <string name="common_retry">다시 시도</string>
+    <string name="mountains_result_count">100대 명산 중 %1$d곳</string>
+    <string name="mountains_empty">조건에 맞는 산이 없어요</string>
+    <string name="common_back">뒤로</string>
+    <string name="mountain_badge_top100">100대 명산</string>
+    <string name="mountain_height">높이</string>
+    <string name="mountain_difficulty">난이도</string>
+    <string name="mountain_difficulty_estimated">예상 난이도</string>
+    <string name="mountain_difficulty_estimated_note">예상 난이도는 공식 등급이 없어 추천 코스 시간으로 정했어요. (3시간 미만 초급, 5시간 미만 중급)</string>
+    <string name="mountain_recommended_time">추천 코스</string>
+    <string name="mountain_selection_reason">선정 이유</string>
+    <string name="mountain_overview">산 개요</string>
+    <string name="mountain_hiking_points">산행 포인트</string>
+    <string name="mountain_courses">산행 코스</string>
+    <string name="mountain_transport">교통</string>
+    <string name="mountain_source">출처: 산림청 국립자연휴양림관리소 숲나들e 100대명산 정보</string>
+    <string name="mountains_result_count_search">검색 결과 %1$d곳</string>
+    <string name="mountains_others_searching">100대 명산 밖의 산도 찾고 있어요…</string>
+    <string name="mountains_others_failed">100대 명산 밖의 산은 불러오지 못했어요</string>
+    <string name="mountains_others_truncated">%1$d곳 중 앞 %2$d곳만 받았어요. 이름을 더 자세히 입력해 보세요.</string>
+    <string name="mountain_badge_top100_short">100대</string>
+    <string name="mountain_manager">관리 기관</string>
+    <string name="mountain_highlights">산 특징</string>
+    <string name="mountain_photos">사진</string>
+    <string name="mountain_photo_description">%1$s 사진 %2$d</string>
+    <string name="mountain_source_forest">출처: 산림청 산정보 서비스</string>
+    <string name="mountain_top100_photo_source">사진 출처: 산림청 산정보 서비스</string>
 </resources>

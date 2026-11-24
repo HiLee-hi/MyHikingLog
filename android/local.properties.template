@@ -6,5 +6,8 @@ SUPABASE_URL=https://your-project-id.supabase.co
 # publishable key
 SUPABASE_ANON_KEY=your_supabase_anon_key_here
 
+# 산림청 산정보 API key (data.go.kr 15058662 > 마이페이지 > 일반 인증키 Decoding)
+FOREST_API_KEY=your_data_go_kr_service_key_here
+
 # Android Studio sets this
 sdk.dir=/Users/your_username/Library/Android/sdk

@@ -52,4 +52,53 @@
     <!-- Errors -->
     <string name="error_sign_in_failed">Sign-in failed</string>
     <string name="error_sign_up_failed">Sign-up failed</string>
+
+    <!-- Mountain finder -->
+    <string name="mountains_view_region">Region</string>
+    <string name="mountains_view_difficulty">Difficulty</string>
+    <string name="mountains_view_height">Height</string>
+    <string name="region_capital">Capital area</string>
+    <string name="region_gangwon">Gangwon</string>
+    <string name="region_chungcheong">Chungcheong</string>
+    <string name="region_jeolla">Jeolla</string>
+    <string name="region_gyeongsang">Gyeongsang</string>
+    <string name="region_jeju">Jeju</string>
+    <string name="difficulty_easy">Easy</string>
+    <string name="difficulty_moderate">Moderate</string>
+    <string name="difficulty_hard">Hard</string>
+    <string name="height_under_500">Under 500m</string>
+    <string name="height_500_to_1000">500–1,000m</string>
+    <string name="height_over_1000">1,000m+</string>
+    <string name="option_all">All</string>
+    <string name="mountains_detail_placeholder">Pick a mountain to see its details here</string>
+    <string name="mountains_search_placeholder">Search by mountain name</string>
+    <string name="mountains_search_clear">Clear</string>
+    <string name="mountains_load_failed">Couldn\'t load the mountains</string>
+    <string name="common_retry">Try again</string>
+    <string name="mountains_result_count">%1$d of the 100 famous mountains</string>
+    <string name="mountains_empty">No mountains match</string>
+    <string name="common_back">Back</string>
+    <string name="mountain_badge_top100">Top 100</string>
+    <string name="mountain_height">Height</string>
+    <string name="mountain_difficulty">Difficulty</string>
+    <string name="mountain_difficulty_estimated">Est. difficulty</string>
+    <string name="mountain_difficulty_estimated_note">No official grade, so this is estimated from the recommended course time (under 3 h easy, under 5 h moderate).</string>
+    <string name="mountain_recommended_time">Suggested course</string>
+    <string name="mountain_selection_reason">Why it was chosen</string>
+    <string name="mountain_overview">Overview</string>
+    <string name="mountain_hiking_points">Hiking tips</string>
+    <string name="mountain_courses">Courses</string>
+    <string name="mountain_transport">Getting there</string>
+    <string name="mountain_source">Source: Korea Forest Service, Supnadeul-e 100 famous mountains</string>
+    <string name="mountains_result_count_search">%1$d results</string>
+    <string name="mountains_others_searching">Also searching mountains beyond the top 100…</string>
+    <string name="mountains_others_failed">Couldn\'t load mountains beyond the top 100</string>
+    <string name="mountains_others_truncated">Showing the first %2$d of %1$d. Try a more specific name.</string>
+    <string name="mountain_badge_top100_short">Top 100</string>
+    <string name="mountain_manager">Managed by</string>
+    <string name="mountain_highlights">Highlights</string>
+    <string name="mountain_photos">Photos</string>
+    <string name="mountain_photo_description">%1$s photo %2$d</string>
+    <string name="mountain_source_forest">Source: Korea Forest Service mountain info</string>
+    <string name="mountain_top100_photo_source">Photos: Korea Forest Service mountain info</string>
 </resources>
