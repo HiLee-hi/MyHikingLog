@@ -1,0 +1,10 @@
+# copy to local.properties (gitignored)
+
+# Supabase > Settings > API
+SUPABASE_URL=https://your-project-id.supabase.co
+
+# publishable key
+SUPABASE_ANON_KEY=your_supabase_anon_key_here
+
+# Android Studio sets this
+sdk.dir=/Users/your_username/Library/Android/sdk

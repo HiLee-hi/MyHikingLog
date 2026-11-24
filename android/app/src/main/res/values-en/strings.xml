@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Acorn Log</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Home</string>
+    <string name="nav_mountains">Mountains</string>
+    <string name="nav_stamps">Stamps</string>
+    <string name="nav_stats">Stats</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- Login required -->
+    <string name="login_required_title">Sign in required</string>
+    <string name="login_required_message">Sign in to save your summits\nand collect acorns.</string>
+    <string name="login_required_action">Sign in</string>
+
+    <!-- Home -->
+    <string name="home_greeting">Which mountain did you climb today?</string>
+    <string name="home_recent">Recent summits</string>
+    <string name="home_recent_empty">No summits yet.\nFind a mountain and collect your first acorn!</string>
+    <string name="home_find_mountain">Find a mountain</string>
+
+    <!-- Placeholders for tabs that are not built yet -->
+    <string name="mountains_coming_soon_title">Mountain list is on its way</string>
+    <string name="mountains_coming_soon_message">Soon you can find mountains by name or region\nand log your summits.</string>
+    <string name="stamps_login_required">Sign in to see\nyour stamp board</string>
+    <string name="stamps_coming_soon_title">The 100 mountains stamp board is on its way</string>
+    <string name="stamps_coming_soon_message">Every summit earns an acorn stamp.</string>
+    <string name="stats_login_required">Sign in to see\nyour hiking stats</string>
+    <string name="stats_coming_soon_title">Hiking stats are on their way</string>
+    <string name="stats_coming_soon_message">See this year\'s summits, total elevation\nand seasons at a glance.</string>
+
+    <!-- Profile -->
+    <string name="profile_sign_up">Sign up</string>
+    <string name="profile_sign_in_email">Sign in with email</string>
+    <string name="profile_email">Email</string>
+    <string name="profile_password">Password</string>
+    <string name="profile_hide_password">Hide password</string>
+    <string name="profile_show_password">Show password</string>
+    <string name="profile_sign_in">Sign in</string>
+    <string name="profile_have_account">Already have an account? Sign in</string>
+    <string name="profile_no_account">Don\'t have an account? Sign up</string>
+    <string name="profile_verify_email_title">Check your email</string>
+    <string name="profile_verify_email_message">We sent a verification link to your email.\nOpen the link, then sign in.</string>
+    <string name="profile_verified_sign_in">Verified — sign in</string>
+    <string name="profile_sign_in_prompt">Sign in to save your summits</string>
+    <string name="profile_sign_in_google">Sign in with Google</string>
+    <string name="profile_photo_description">Profile photo</string>
+    <string name="profile_default_name">User</string>
+    <string name="profile_sign_out">Sign out</string>
+
+    <!-- Errors -->
+    <string name="error_sign_in_failed">Sign-in failed</string>
+    <string name="error_sign_up_failed">Sign-up failed</string>
+</resources>

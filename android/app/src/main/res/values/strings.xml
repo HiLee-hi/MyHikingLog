@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">도토리한알</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">홈</string>
+    <string name="nav_mountains">산 찾기</string>
+    <string name="nav_stamps">도장판</string>
+    <string name="nav_stats">통계</string>
+    <string name="nav_profile">프로필</string>
+
+    <!-- Login required -->
+    <string name="login_required_title">로그인이 필요한 기능이에요</string>
+    <string name="login_required_message">완등 기록을 저장하고 도토리를 모으려면\n로그인해주세요.</string>
+    <string name="login_required_action">로그인하기</string>
+
+    <!-- Home -->
+    <string name="home_greeting">오늘은 어느 산에 올랐나요?</string>
+    <string name="home_recent">최근 완등</string>
+    <string name="home_recent_empty">아직 완등 기록이 없어요.\n산을 찾아 첫 도토리를 모아보세요!</string>
+    <string name="home_find_mountain">산 찾으러 가기</string>
+
+    <!-- Placeholders for tabs that are not built yet -->
+    <string name="mountains_coming_soon_title">산 목록을 준비하고 있어요</string>
+    <string name="mountains_coming_soon_message">곧 이름이나 지역으로 산을 찾고\n완등 기록을 남길 수 있어요.</string>
+    <string name="stamps_login_required">도장판을 보려면\n로그인이 필요해요</string>
+    <string name="stamps_coming_soon_title">100대 명산 도장판을 준비하고 있어요</string>
+    <string name="stamps_coming_soon_message">오른 산마다 도토리 도장이 찍혀요.</string>
+    <string name="stats_login_required">나의 등산 통계를 보려면\n로그인이 필요해요</string>
+    <string name="stats_coming_soon_title">등산 통계를 준비하고 있어요</string>
+    <string name="stats_coming_soon_message">올해 오른 산, 누적 고도, 계절별 기록을\n한눈에 볼 수 있어요.</string>
+
+    <!-- Profile -->
+    <string name="profile_sign_up">회원가입</string>
+    <string name="profile_sign_in_email">이메일로 로그인</string>
+    <string name="profile_email">이메일</string>
+    <string name="profile_password">비밀번호</string>
+    <string name="profile_hide_password">비밀번호 숨기기</string>
+    <string name="profile_show_password">비밀번호 보기</string>
+    <string name="profile_sign_in">로그인</string>
+    <string name="profile_have_account">이미 계정이 있으신가요? 로그인</string>
+    <string name="profile_no_account">계정이 없으신가요? 회원가입</string>
+    <string name="profile_verify_email_title">이메일을 확인해주세요</string>
+    <string name="profile_verify_email_message">가입한 이메일로 인증 링크를 보냈어요.\n링크를 누른 뒤 로그인해 주세요.</string>
+    <string name="profile_verified_sign_in">인증 완료 — 로그인하기</string>
+    <string name="profile_sign_in_prompt">로그인하여 완등 기록을 저장하세요</string>
+    <string name="profile_sign_in_google">Google로 로그인</string>
+    <string name="profile_photo_description">프로필 사진</string>
+    <string name="profile_default_name">사용자</string>
+    <string name="profile_sign_out">로그아웃</string>
+
+    <!-- Errors -->
+    <string name="error_sign_in_failed">로그인하지 못했어요</string>
+    <string name="error_sign_up_failed">회원가입하지 못했어요</string>
+</resources>

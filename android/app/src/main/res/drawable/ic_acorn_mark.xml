@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- launcher acorn, cropped -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp"
+    android:height="40dp"
+    android:viewportWidth="40"
+    android:viewportHeight="61">
+    <group android:translateX="-34" android:translateY="-20.5">
+
+    <!-- leaf -->
+    <path android:fillColor="#6E8F4E"
+        android:pathData="M57,27C61,21.5 68,21 71.5,24.5C67.5,29 61,30.5 57,27Z" />
+    <!-- stem -->
+    <path android:fillColor="#7A4A21"
+        android:pathData="M52.5,34C52.5,30 54,27 57,25L58.6,27C56.6,28.6 55.6,31 55.6,34Z" />
+    <!-- nut -->
+    <path android:fillColor="#C98A4B"
+        android:pathData="M39,50L69,50C69,66 62,78 54,81C46,78 39,66 39,50Z" />
+    <path android:fillColor="#E0AE74"
+        android:pathData="M44,57C44.5,64 47.5,70 51,73.5C47,72 43.5,65 43,57Z" />
+    <!-- cap -->
+    <path android:fillColor="#7A4A21"
+        android:pathData="M35,51C35,40 44,33 54,33C64,33 73,40 73,51C73,53 71.5,54.5 70,54.5L38,54.5C36.5,54.5 35,53 35,51Z" />
+    <path android:strokeColor="#9A6435" android:strokeWidth="1.6" android:strokeLineCap="round"
+        android:pathData="M40,46.5C46,43.5 62,43.5 68,46.5M44,40C50,37.5 58,37.5 64,40" />
+    </group>
+</vector>
