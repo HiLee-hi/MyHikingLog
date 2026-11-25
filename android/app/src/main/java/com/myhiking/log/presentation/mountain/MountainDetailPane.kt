@@ -23,6 +23,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Flag
+import androidx.compose.material3.Button
 import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButtonDefaults
@@ -42,15 +44,25 @@ import coil.compose.AsyncImage
 import com.myhiking.log.R
 import com.myhiking.log.domain.model.Mountain
 import com.myhiking.log.domain.model.MountainCourse
+import com.myhiking.log.domain.model.SummitRecord
 import com.myhiking.log.presentation.adaptive.AdaptiveDimens
 import com.myhiking.log.presentation.adaptive.constrainedWidth
+import com.myhiking.log.presentation.summit.SummitRecordCard
 import com.myhiking.log.presentation.ui.theme.AcornColors
 import com.myhiking.log.presentation.ui.theme.Jua
+import com.myhiking.log.presentation.ui.theme.acornButtonColors
 
 // top 100 data or API data. photos from API for both
-// TODO step 3: save summit
 @Composable
-fun MountainDetailPane(mountain: Mountain, photos: List<String>, showBack: Boolean, onBack: () -> Unit) {
+fun MountainDetailPane(
+    mountain: Mountain,
+    photos: List<String>,
+    records: List<SummitRecord>,
+    showBack: Boolean,
+    onBack: () -> Unit,
+    onRecordSummit: () -> Unit,
+    onOpenRecord: (String) -> Unit
+) {
     Box(modifier = Modifier.fillMaxSize()) {
     Column(modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
         Box {
@@ -116,6 +128,32 @@ fun MountainDetailPane(mountain: Mountain, photos: List<String>, showBack: Boole
             if (tiles.isNotEmpty()) {
                 Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                     tiles.forEach { (label, value) -> InfoTile(label, value, Modifier.weight(1f)) }
+                }
+            }
+
+            Button(
+                onClick = onRecordSummit,
+                colors = acornButtonColors(),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Icon(Icons.Default.Flag, contentDescription = null, modifier = Modifier.size(18.dp))
+                Text(stringResource(R.string.summit_record_action), modifier = Modifier.padding(start = 8.dp))
+            }
+
+            if (records.isNotEmpty()) {
+                Column(verticalArrangement = Arrangement.spacedBy(10.dp)) {
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Box(modifier = Modifier.weight(1f)) { SectionTitle(stringResource(R.string.mountain_my_summits)) }
+                        Text(
+                            stringResource(R.string.mountain_my_summits_count, records.size),
+                            style = MaterialTheme.typography.labelLarge,
+                            color = AcornColors.Forest,
+                            fontWeight = FontWeight.Bold
+                        )
+                    }
+                    records.forEach { record ->
+                        SummitRecordCard(record = record, showMountain = false, onClick = { onOpenRecord(record.id) })
+                    }
                 }
             }
 

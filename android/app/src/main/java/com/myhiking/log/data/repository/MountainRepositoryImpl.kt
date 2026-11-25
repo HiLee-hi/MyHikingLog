@@ -14,6 +14,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
+import java.util.concurrent.ConcurrentHashMap
 import javax.inject.Inject
 import kotlin.math.abs
 
@@ -27,6 +28,8 @@ class MountainRepositoryImpl @Inject constructor(
     private var cache: List<Mountain>? = null
     private val searches = LruCache<String, MountainSearchPage>(30)
     private val photos = LruCache<String, List<String>>(50)
+    // API mountains by id, for the record screen
+    private val seen = ConcurrentHashMap<String, Mountain>()
 
     override suspend fun getTop100(): List<Mountain> = mutex.withLock {
         cache ?: withContext(Dispatchers.IO) {
@@ -42,6 +45,7 @@ class MountainRepositoryImpl @Inject constructor(
         return withContext(Dispatchers.IO) { parseForestSearch(api.search(query)) }.also {
             AppLogger.i("REPO_MOUNTAIN", "Forest search '$query': ${it.mountains.size} of ${it.totalCount}")
             searches[query] = it
+            it.mountains.forEach { mountain -> seen[mountain.id] = mountain }
         }
     }
 
@@ -60,6 +64,9 @@ class MountainRepositoryImpl @Inject constructor(
         AppLogger.i("REPO_MOUNTAIN", "Photos for ${mountain.name}: ${urls.size}")
         return urls.also { photos[mountain.id] = it }
     }
+
+    override suspend fun find(id: String): Mountain? =
+        getTop100().firstOrNull { it.id == id } ?: seen[id]
 
     // same base name + province overlap, closest height first
     private suspend fun candidatesFor(mountain: Mountain): List<String> =

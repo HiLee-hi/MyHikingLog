@@ -21,8 +21,6 @@
     <string name="home_find_mountain">Find a mountain</string>
 
     <!-- Placeholders for tabs that are not built yet -->
-    <string name="mountains_coming_soon_title">Mountain list is on its way</string>
-    <string name="mountains_coming_soon_message">Soon you can find mountains by name or region\nand log your summits.</string>
     <string name="stamps_login_required">Sign in to see\nyour stamp board</string>
     <string name="stamps_coming_soon_title">The 100 mountains stamp board is on its way</string>
     <string name="stamps_coming_soon_message">Every summit earns an acorn stamp.</string>
@@ -101,4 +99,52 @@
     <string name="mountain_photo_description">%1$s photo %2$d</string>
     <string name="mountain_source_forest">Source: Korea Forest Service mountain info</string>
     <string name="mountain_top100_photo_source">Photos: Korea Forest Service mountain info</string>
+
+    <!-- Summit records -->
+    <string name="summit_record_action">Log a summit</string>
+    <string name="mountain_my_summits">My summits</string>
+    <string name="mountain_my_summits_count">Summits: %1$d</string>
+    <string name="summit_edit_title_new">Log summit</string>
+    <string name="summit_edit_title_edit">Edit summit</string>
+    <string name="summit_date">Date</string>
+    <string name="summit_date_pattern">MMM d, yyyy (EEE)</string>
+    <string name="summit_course">Course</string>
+    <string name="summit_course_placeholder">e.g. trailhead → summit</string>
+    <string name="summit_duration">Time taken</string>
+    <string name="summit_hours">h</string>
+    <string name="summit_minutes">min</string>
+    <string name="summit_weather">Weather</string>
+    <string name="weather_sunny">Sunny</string>
+    <string name="weather_partly_cloudy">Partly cloudy</string>
+    <string name="weather_cloudy">Cloudy</string>
+    <string name="weather_rainy">Rain</string>
+    <string name="weather_snowy">Snow</string>
+    <string name="summit_companion">Company</string>
+    <string name="companion_alone">Solo</string>
+    <string name="companion_friends">Friends</string>
+    <string name="companion_family">Family</string>
+    <string name="companion_partner">Partner</string>
+    <string name="companion_group">Hiking club</string>
+    <string name="summit_rating">Rating</string>
+    <string name="summit_rating_star">%1$d out of 5</string>
+    <string name="summit_comment">One-line review</string>
+    <string name="summit_comment_placeholder">How was today\'s hike?</string>
+    <string name="summit_comment_count">%1$d/%2$d</string>
+    <string name="summit_save">Save</string>
+    <string name="summit_delete">Delete</string>
+    <string name="summit_delete_confirm_title">Delete this record?</string>
+    <string name="summit_delete_confirm_message">Deleted records can\'t be restored.</string>
+    <string name="common_cancel">Cancel</string>
+    <string name="common_ok">OK</string>
+    <string name="summit_error_future_date">You can\'t pick a date after today</string>
+    <string name="summit_error_duration">Enter a time between 1 minute and 48 hours</string>
+    <string name="summit_error_comment_too_long">Reviews can be up to %1$d characters</string>
+    <string name="summit_error_save_failed">Couldn\'t save the record. Check your internet connection.</string>
+    <string name="summit_error_delete_failed">Couldn\'t delete the record. Check your internet connection.</string>
+    <string name="summit_error_not_found">Record not found</string>
+    <string name="duration_hours_minutes">%1$dh %2$dm</string>
+    <string name="duration_hours">%1$dh</string>
+    <string name="duration_minutes">%1$dm</string>
+    <string name="home_records_load_failed">Couldn\'t load your summits</string>
+    <string name="home_recent_signed_out">Sign in and log your first summit!</string>
 </resources>

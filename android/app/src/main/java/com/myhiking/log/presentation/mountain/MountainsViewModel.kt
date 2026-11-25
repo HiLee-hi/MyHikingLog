@@ -8,9 +8,11 @@ import com.myhiking.log.domain.model.Mountain
 import com.myhiking.log.domain.model.MountainFilter
 import com.myhiking.log.domain.model.MountainView
 import com.myhiking.log.domain.model.RegionGroup
+import com.myhiking.log.domain.model.SummitRecords
 import com.myhiking.log.domain.usecase.FilterMountainsUseCase
 import com.myhiking.log.domain.usecase.GetMountainPhotosUseCase
 import com.myhiking.log.domain.usecase.GetTop100MountainsUseCase
+import com.myhiking.log.domain.usecase.ObserveSummitRecordsUseCase
 import com.myhiking.log.domain.usecase.SearchMountainsUseCase
 import com.myhiking.log.util.AppLogger
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -54,8 +56,12 @@ class MountainsViewModel @Inject constructor(
     private val getTop100Mountains: GetTop100MountainsUseCase,
     private val searchMountains: SearchMountainsUseCase,
     private val getMountainPhotos: GetMountainPhotosUseCase,
-    private val filterMountains: FilterMountainsUseCase
+    private val filterMountains: FilterMountainsUseCase,
+    observeSummitRecords: ObserveSummitRecordsUseCase
 ) : ViewModel() {
+
+    // detail pane: my summits of the open mountain
+    val records: StateFlow<SummitRecords> = observeSummitRecords()
 
     private val all = MutableStateFlow<List<Mountain>?>(null)
     private val error = MutableStateFlow(false)

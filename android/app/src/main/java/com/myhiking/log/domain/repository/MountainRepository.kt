@@ -12,4 +12,7 @@ interface MountainRepository {
 
     // empty if none
     suspend fun photoUrls(mountain: Mountain): List<String>
+
+    // top 100, or an API mountain seen in a search this session
+    suspend fun find(id: String): Mountain?
 }

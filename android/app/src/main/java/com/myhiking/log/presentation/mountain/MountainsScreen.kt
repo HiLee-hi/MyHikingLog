@@ -80,7 +80,13 @@ import com.myhiking.log.presentation.ui.theme.Jua
 // search + view tabs + list. narrow: detail replaces list, wide: side by side
 @OptIn(ExperimentalMaterial3AdaptiveApi::class)
 @Composable
-fun MountainsScreen(viewModel: MountainsViewModel = hiltViewModel()) {
+fun MountainsScreen(
+    isLoggedIn: Boolean,
+    onRecordSummit: (mountainId: String) -> Unit,
+    onOpenRecord: (recordId: String) -> Unit,
+    onNavigateToLogin: () -> Unit,
+    viewModel: MountainsViewModel = hiltViewModel()
+) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val listState = rememberLazyListState()
     // filter changed -> scroll to top
@@ -132,12 +138,17 @@ fun MountainsScreen(viewModel: MountainsViewModel = hiltViewModel()) {
                 if (mountain != null) {
                     key(mountain.id) {
                         val photos by viewModel.photos.collectAsStateWithLifecycle()
+                        val records by viewModel.records.collectAsStateWithLifecycle()
                         LaunchedEffect(Unit) { viewModel.loadPhotos(mountain) }
                         MountainDetailPane(
                             mountain = mountain,
                             photos = photos[mountain.id].orEmpty(),
+                            records = if (isLoggedIn) records.forMountain(mountain.id) else emptyList(),
                             showBack = paneCount == 1,
-                            onBack = { navigator.navigateBack() }
+                            onBack = { navigator.navigateBack() },
+                            // signed out -> profile tab
+                            onRecordSummit = { if (isLoggedIn) onRecordSummit(mountain.id) else onNavigateToLogin() },
+                            onOpenRecord = onOpenRecord
                         )
                     }
                 } else {

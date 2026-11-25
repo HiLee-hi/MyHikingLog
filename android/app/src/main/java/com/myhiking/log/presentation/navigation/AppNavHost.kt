@@ -1,5 +1,6 @@
 package com.myhiking.log.presentation.navigation
 
+import android.net.Uri
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
@@ -25,13 +26,16 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.compose.dropUnlessResumed
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.myhiking.log.R
 import com.myhiking.log.presentation.adaptive.LocalAdaptiveLayoutInfo
 import com.myhiking.log.presentation.adaptive.NavigationLayout
@@ -41,6 +45,8 @@ import com.myhiking.log.presentation.mountain.MountainsScreen
 import com.myhiking.log.presentation.profile.ProfileScreen
 import com.myhiking.log.presentation.stamp.StampsScreen
 import com.myhiking.log.presentation.stats.StatsScreen
+import com.myhiking.log.presentation.summit.SummitEditorScreen
+import com.myhiking.log.presentation.summit.SummitEditorViewModel
 import com.myhiking.log.util.AppLogger
 
 sealed class Screen(val route: String) {
@@ -49,6 +55,12 @@ sealed class Screen(val route: String) {
     object Stamps : Screen("stamps")
     object Stats : Screen("stats")
     object Profile : Screen("profile")
+
+    // full screen, no nav bar. new: mountainId, edit: recordId
+    object SummitEditor : Screen("summit/edit?mountainId={mountainId}&recordId={recordId}") {
+        fun newRecord(mountainId: String) = "summit/edit?mountainId=${Uri.encode(mountainId)}"
+        fun edit(recordId: String) = "summit/edit?recordId=${Uri.encode(recordId)}"
+    }
 }
 
 data class BottomNavItem(
@@ -96,10 +108,16 @@ private fun AppNavHostContent(appViewModel: AppViewModel) {
         navController.navigateToTab(Screen.Profile.route)
     }
 
-    // compact: bar, else rail
-    val navigationSuiteType = when (adaptiveInfo.navigationLayout) {
-        NavigationLayout.Rail -> NavigationSuiteType.NavigationRail
-        NavigationLayout.BottomBar -> NavigationSuiteType.NavigationBar
+    val openRecord: (String) -> Unit = { id ->
+        AppLogger.d("NAVIGATION", "Open summit record")
+        navController.navigate(Screen.SummitEditor.edit(id)) { launchSingleTop = true }
+    }
+
+    // compact: bar, else rail. editor hides it
+    val navigationSuiteType = when {
+        currentDestination?.route == Screen.SummitEditor.route -> NavigationSuiteType.None
+        adaptiveInfo.navigationLayout == NavigationLayout.Rail -> NavigationSuiteType.NavigationRail
+        else -> NavigationSuiteType.NavigationBar
     }
 
     NavigationSuiteScaffold(
@@ -137,15 +155,26 @@ private fun AppNavHostContent(appViewModel: AppViewModel) {
             composable(Screen.Home.route) {
                 LaunchedEffect(Unit) { AppLogger.d("NAVIGATION", "Screen: Home") }
                 HomeScreen(
+                    isLoggedIn = isLoggedIn,
                     onFindMountain = {
                         AppLogger.d("NAVIGATION", "Home → Mountains")
                         navController.navigateToTab(Screen.Mountains.route)
-                    }
+                    },
+                    onOpenRecord = openRecord,
+                    onNavigateToLogin = navigateToProfile
                 )
             }
             composable(Screen.Mountains.route) {
                 LaunchedEffect(Unit) { AppLogger.d("NAVIGATION", "Screen: Mountains") }
-                MountainsScreen()
+                MountainsScreen(
+                    isLoggedIn = isLoggedIn,
+                    onRecordSummit = { id ->
+                        AppLogger.d("NAVIGATION", "Mountains → SummitEditor: $id")
+                        navController.navigate(Screen.SummitEditor.newRecord(id)) { launchSingleTop = true }
+                    },
+                    onOpenRecord = openRecord,
+                    onNavigateToLogin = navigateToProfile
+                )
             }
             composable(Screen.Stamps.route) {
                 LaunchedEffect(Unit) { AppLogger.d("NAVIGATION", "Screen: Stamps") }
@@ -154,6 +183,17 @@ private fun AppNavHostContent(appViewModel: AppViewModel) {
             composable(Screen.Stats.route) {
                 LaunchedEffect(Unit) { AppLogger.d("NAVIGATION", "Screen: Stats") }
                 StatsScreen(isLoggedIn = isLoggedIn, onNavigateToLogin = navigateToProfile)
+            }
+            composable(
+                Screen.SummitEditor.route,
+                arguments = listOf(
+                    navArgument(SummitEditorViewModel.ARG_MOUNTAIN_ID) { type = NavType.StringType; nullable = true; defaultValue = null },
+                    navArgument(SummitEditorViewModel.ARG_RECORD_ID) { type = NavType.StringType; nullable = true; defaultValue = null }
+                )
+            ) {
+                LaunchedEffect(Unit) { AppLogger.d("NAVIGATION", "Screen: SummitEditor") }
+                // back tap + save finishing at once -> pop only once
+                SummitEditorScreen(onClose = dropUnlessResumed { navController.popBackStack() })
             }
             composable(Screen.Profile.route) {
                 LaunchedEffect(Unit) { AppLogger.d("NAVIGATION", "Screen: Profile") }
